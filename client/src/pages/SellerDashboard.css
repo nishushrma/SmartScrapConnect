@@ -1,0 +1,830 @@
+/* ---------------- General ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ---------------- Price List Section ---------------- */
+.price-section {
+  margin: 20px auto;
+  padding: 28px 24px;
+  background: linear-gradient(135deg, #0f7a2e 0%, #0c5e24 100%);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+  color: #e8f5e9;
+  max-width: 1200px;
+}
+
+.price-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 12px;
+  justify-content: center;
+}
+
+.price-tab {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.15);
+  color: #e8f5e9;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+  min-width: 140px;
+  text-align: center;
+}
+
+.price-tab:hover {
+  background: rgba(255,255,255,0.22);
+}
+
+.price-tab.active {
+  background: #1b5e20;
+  color: #ffffff;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.18);
+}
+
+.price-divider {
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,0.25);
+  margin: 12px 0 18px;
+}
+
+.price-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  justify-content: center;
+}
+
+.price-card {
+  background: #ffffff;
+  color: #263238;
+  width: 200px;
+  border-radius: 12px;
+  padding: 16px 14px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 130px;
+}
+
+.price-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.16);
+}
+
+.price-card-icon {
+  font-size: 22px;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.price-card-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 8px;
+  min-height: 38px; /* keep titles aligned */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.price-card-price {
+  color: #e65100;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.price-card-price span {
+  color: #607d8b;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .price-grid {
+    justify-content: center;
+  }
+  .price-card { width: 46%; }
+  .price-tab { min-width: 42%; }
+}
+
+body {
+  background-color: #f0f8ff;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ---------------- Navbar ---------------- */
+nav.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #2e7d32;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav.navbar .logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+nav.navbar ul.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav.navbar ul.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav.navbar ul.nav-links li a:hover {
+  color: #ffeb3b;
+}
+
+/* Profile Icon */
+nav.navbar .profile {
+  position: relative;
+  cursor: pointer;
+}
+
+nav.navbar .profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Dropdown */
+nav.navbar .profile .dropdown {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  color: #222;
+  min-width: 150px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+nav.navbar .profile:hover .dropdown {
+  display: block;
+}
+
+nav.navbar .profile .dropdown a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #222;
+  transition: 0.3s;
+}
+
+nav.navbar .profile .dropdown a:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+/* ---------------- Dashboard Hero / Home ---------------- */
+#hero {
+  background: linear-gradient(to right, #f5f5dc, #e0d8c3);
+  color: #333;
+  text-align: center;
+  padding: 80px 20px;
+  border-radius: 12px;
+  margin: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+#hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+#hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.hero-buttons a {
+  text-decoration: none;
+  background-color: white;
+  color: #f39c12;
+  padding: 12px 25px;
+  margin: 5px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.hero-buttons a:hover {
+  background-color: #f39c12;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ---------------- Steps Section ---------------- */
+#home {
+  margin: 40px 20px;
+  text-align: center;
+}
+
+#home h2 {
+  color: #28a745;
+  margin-bottom: 15px;
+}
+
+#home p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.steps-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.step-card {
+  background-color: white;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.step-card h3 {
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  font-size: 0.95rem;
+}
+
+/* ---------------- Quick Actions ---------------- */
+#quick-actions {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #f4ecd8;
+  border-radius: 12px;
+  margin: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+#quick-actions h2 {
+  color: #28a745;
+  margin-bottom: 30px;
+}
+
+.actions-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.action-card {
+  display: block;
+  background-color: #56ab2f;
+  color: white;
+  padding: 20px 25px;
+  width: 200px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.action-card:hover {
+  background-color: #28a745;
+  transform: translateY(-5px);
+}
+
+/* ---------------- SellerActivity Page ---------------- */
+.page-wrap {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* Toolbar / Filters */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.toolbar input, .toolbar select {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.toolbar .btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.toolbar .btn:hover {
+  background-color: #1b5e20;
+}
+
+.toolbar .btn.secondary {
+  background-color: #ccc;
+  color: #222;
+}
+
+.toolbar .btn.secondary:hover {
+  background-color: #aaa;
+}
+
+/* Activity Table */
+.card.table-wrap {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.activity {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.activity th, .activity td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.activity th {
+  background-color: #28a745;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+/* Add Activity Form */
+.card.add-form, .add-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px;
+}
+
+.add-form input, .add-form select {
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  flex: 1 1 150px;
+}
+
+.add-form input.full {
+  flex: 1 1 100%;
+}
+
+.add-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.add-actions .btn {
+  padding: 8px 20px;
+}
+
+/* Footer */
+footer {
+  background-color: #2e7d32;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 20px;
+}
+
+/* Error message */
+.error-msg {
+  color: red;
+  margin: 5px 0;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 768px) {
+  nav.navbar ul.nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .add-form {
+    flex-direction: column;
+  }
+
+  .actions-container,
+  .steps-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons a {
+    padding: 10px 20px;
+    margin: 5px;
+  }
+}
+.services-page {
+  font-family: "Poppins", sans-serif;
+  color: #222;
+  background-color: #f9fff9;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #e0f2f1, #a5d6a7);
+  color: #1b5e20;
+  border-radius: 12px;
+  margin: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* Services Cards */
+.services-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin: 40px 20px;
+}
+
+.service-card {
+  background-color: white;
+  width: 300px;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.service-card h3 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Footer */
+footer {
+  background-color: #2e7d32;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+.help-page {
+  font-family: "Poppins", sans-serif;
+  color: #222;
+  background-color: #f0f8ff;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  /* Add bottom padding to avoid content being hidden behind fixed footer */
+  padding-bottom: 70px;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #1b5e20;
+  margin-bottom: 20px;
+}
+
+/* FAQ Section */
+.faq-section {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+}
+
+.faq-item {
+  background-color: #e0f2f1;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.faq-item summary {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.faq-item p {
+  margin-top: 10px;
+  padding-left: 10px;
+  line-height: 1.5;
+}
+
+/* Contact Support Form */
+.contact-section {
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  background-color: #f4ecd8;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #1b5e20;
+}
+
+.success-msg {
+  text-align: center;
+  color: green;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Fix footer to bottom only on Help page */
+.help-page > footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+/* Tips & Guides */
+.tips-section {
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  background-color: #fff3e0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.tips-section ul {
+  list-style: disc;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+/* ---------------- Services Enhancements ---------------- */
+
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.step-card {
+  background-color: white;
+  width: 260px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.step-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.step-card h4 {
+  color: #388e3c;
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Benefits Section */
+.benefits {
+  background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 15px;
+  margin: 40px 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.benefits h2 {
+  color: #2e7d32;
+  margin-bottom: 25px;
+}
+
+.benefits ul {
+  list-style: none;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+}
+
+.benefits li {
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.benefits li:hover {
+  background-color: #c8e6c9;
+  transform: translateX(5px);
+}
+
+/* FAQ Section */
+.faq-section {
+  max-width: 800px;
+  margin: 60px auto;
+  background-color: #f9fff9;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  padding: 30px 25px;
+}
+
+.faq-section h2 {
+  text-align: center;
+  color: #2e7d32;
+  margin-bottom: 25px;
+}
+
+.faq-item {
+  background-color: #e0f2f1;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  padding: 15px 20px;
+  transition: 0.3s;
+}
+
+.faq-item:hover {
+  background-color: #c8e6c9;
+}
+
+.faq-item h4 {
+  color: #1b5e20;
+  font-weight: 600;
+}
+
+.faq-item p {
+  margin-top: 8px;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .steps {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .benefits ul {
+    padding: 0 10px;
+  }
+
+  .service-card,
+  .step-card {
+    width: 90%;
+  }
+}
+
+
+
+/* SellerProfile page layout */
+.profile-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-page .page-wrap {
+  flex: 1 0 auto;
+}
+
+.profile-page footer {
+  margin-top: 20px;
+}
+
