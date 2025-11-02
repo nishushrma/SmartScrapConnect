@@ -18,6 +18,8 @@ const Register = () => {
 
   const [error, setError] = useState("");
 
+  const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -37,7 +39,7 @@ const Register = () => {
 
     try {
       // ✅ Send POST request to backend
-      const res = await axios.post("http://localhost:5000/api/auth/register", {
+      const res = await axios.post(`${API}/api/auth/register`, {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
